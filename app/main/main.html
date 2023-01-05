@@ -1,0 +1,16 @@
+<div flex>
+  <mtoolbar
+    toolbar-menu="$ctrl.toolbarMenu"
+    on-open="$ctrl.onOpen({ sidenav: 'left' })"
+  ></mtoolbar>
+  <!-- Left Sidebar -->
+  <left-sidenav></left-sidenav>
+
+  <!-- Content -->
+  <!-- <md-content> -->
+  <ng-view></ng-view>
+  <!-- </md-content> -->
+
+  <!-- Right Sidebar -->
+  <right-sidenav></right-sidenav>
+</div>

@@ -1,0 +1,72 @@
+<div class="todo-list" ng-cloak>
+      <md-content>
+            <md-tabs md-dynamic-height md-border-bottom>
+                  <!-- <md-tab label="all" ng-click="$ctrl.stateTab('all')">
+                  </md-tab> -->
+                  <md-tab label="active" ng-click="$ctrl.stateTab(false)">
+                  </md-tab>
+                  <md-tab label="completed" ng-click="$ctrl.stateTab(true)">
+                  </md-tab>
+            </md-tabs>
+            <div ng-cloak>
+                  <md-content class="todo-list">
+                        <md-content class="md-padding">
+                              <div class="md-media-lg">
+                                    <md-button ng-hide="addTask" ng-click="addTask = !addTask" class="md-icon-button md-primary"
+                                          aria-label="AddTask">
+                                          <md-icon class="md-primary">note_add</md-icon>
+                                    </md-button>
+
+                                    <md-card-content>
+                                          <md-divider ng-hide="addTask"></md-divider>
+                                          <form name="formAddTask" ng-show="addTask">
+                                                <md-input-container class="md-block">
+                                                      <label>Задача</label>
+                                                      <input ng-model="$ctrl.task.title" name="task" ng-keypress="$ctrl.keypressHandler($event)"
+                                                            md-autofocus />
+                                                </md-input-container>
+
+                                                <section layout="row" layout-sm="row" layout-align="left left"
+                                                      layout-wrap>
+                                                      <md-button class="md-raised md-primary" ng-click="$ctrl.addTask($event)">Добавить</md-button>
+                                                      <md-button class="md-raised" ng-click="addTask = !addTask">Отмена</md-button>
+                                                </section>
+                                                <md-divider></md-divider>
+                                          </form>
+                                          <md-content>
+                                                <md-list flex>
+                                                      <md-subheader class="md-no-sticky" ng-show="$ctrl.TodoService.tasks.length > 0">Всего
+                                                            задач на сегодня: {{ $ctrl.TodoService.tasks |
+                                                            countTodayTasks }}</md-subheader>
+                                                      <md-list-item class="md-2-line md-long-text" ng-repeat="task in $ctrl.TodoService.tasks | filter: task.completed = $ctrl.stateTodoList | orderBy:' -createdAt' track by $index">
+                                                            <md-checkbox ng-model="task.completed" ng-change='$ctrl.onCompleteTodo(task)'></md-checkbox>
+                                                            <div class="md-list-item-text" layout="column">
+                                                                  <p ng-class="{completed: task.completed, bold: important, 'has-error': error}">
+                                                                        {{ task.title | cropString }} </p>
+                                                                  <h4>{{task.createdAt |
+                                                                        amCalendar:referenceTime:formats}}</h4>
+                                                            </div>
+                                                            <md-button md-ink-ripple class="md-icon-button" md-no-ink="false"
+                                                                  aria-label="Remove Task">
+                                                                  <md-icon class="md-secondary" aria-label="Remove Task"
+                                                                        ng-click="$ctrl.removeTask(task)">delete_forever</md-icon>
+                                                            </md-button>
+
+                                                            <md-divider></md-divider>
+                                                      </md-list-item>
+                                                </md-list>
+                                          </md-content>
+
+                                    </md-card-content>
+                              </div>
+                        </md-content>
+                  </md-content>
+            </div>
+            <!--  md-ink-ripple docs-scroll-fab md-button  scrolling -->
+            <!-- <md-button ng-click="addTask = !addTask" class="md-fab md-fab-bottom-right" type="button" docs-scroll-class="scrolling"
+                  ng-click="scrollTop()" aria-label="Back to Top">
+                  <md-icon>add</md-icon>
+                  </button> -->
+
+      </md-content>
+</div>

@@ -1,0 +1,25 @@
+<md-sidenav class="md-sidenav-left" md-component-id="left" md-whiteframe="4">
+
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+
+      <h2 flex md-truncate>Меню</h2>
+
+      <md-button class="md-icon-button" aria-label="Favorite" ng-click="$ctrl.close()">
+        <md-icon>close</md-icon>
+      </md-button>
+
+    </div>
+  </md-toolbar>
+
+  <md-content layout-padding>
+    <md-menu-content>
+      <md-list>
+        <md-list-item ng-repeat="item in $ctrl.menu" ng-click="$ctrl.goTo(item.link)">
+          <md-icon>{{item.icon}}</md-icon>
+          <p>{{item.title}}</p>
+        </md-list-item>
+      </md-list>
+    </md-menu-content>
+  </md-content>
+</md-sidenav>
